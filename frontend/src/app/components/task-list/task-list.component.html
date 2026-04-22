@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="header">
+    <h1>Minhas Tarefas</h1>
+    <a routerLink="/nova" class="btn btn-novo">+ Nova Tarefa</a>
+  </div>
+
+  <!-- mensagem de feedback -->
+  <div *ngIf="mensagem" class="alerta" [ngClass]="tipoMensagem === 'sucesso' ? 'alerta-sucesso' : 'alerta-erro'">
+    {{ mensagem }}
+  </div>
+
+  <!-- resumo -->
+  <div class="resumo">
+    <span>Total: {{ tarefas.length }}</span>
+    <span class="pendente-label">Pendentes: {{ pendentes }}</span>
+    <span class="concluida-label">Concluídas: {{ concluidas }}</span>
+  </div>
+
+  <!-- filtros -->
+  <div class="filtros">
+    <button (click)="filtrar('todas')" [class.ativo]="filtroAtivo === 'todas'">Todas</button>
+    <button (click)="filtrar('Pendente')" [class.ativo]="filtroAtivo === 'Pendente'">Pendentes</button>
+    <button (click)="filtrar('Concluída')" [class.ativo]="filtroAtivo === 'Concluída'">Concluídas</button>
+  </div>
+
+  <!-- lista vazia -->
+  <div *ngIf="tarefas.length === 0" class="vazio">
+    <p>Nenhuma tarefa encontrada.</p>
+  </div>
+
+  <!-- lista de tarefas -->
+  <div class="lista">
+    <div class="card" *ngFor="let tarefa of tarefas">
+      <div class="card-topo">
+        <h3>{{ tarefa.titulo }}</h3>
+        <span class="badge" [ngClass]="tarefa.status === 'Concluída' ? 'badge-concluida' : 'badge-pendente'">
+          {{ tarefa.status }}
+        </span>
+      </div>
+      <p class="descricao">{{ tarefa.descricao || 'Sem descrição' }}</p>
+      <small>Criada em: {{ formatarData(tarefa.dataCriacao) }}</small>
+      <div class="card-acoes">
+        <a [routerLink]="['/editar', tarefa.id]" class="btn btn-editar">Editar</a>
+        <button (click)="deletar(tarefa.id, tarefa.titulo)" class="btn btn-deletar">Deletar</button>
+      </div>
+    </div>
+  </div>
+
+</div>
