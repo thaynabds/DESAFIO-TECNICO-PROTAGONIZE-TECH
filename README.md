@@ -1,120 +1,188 @@
-# Protagonize Tech - Gerenciador de Tarefas
+<div align="center">
 
-Projeto desenvolvido como desafio técnico do Bootcamp Web Front (Angular + ASP.NET).
+<img src="https://img.shields.io/badge/Angular-17-DD0031?style=for-the-badge&logo=angular&logoColor=white" />
+<img src="https://img.shields.io/badge/.NET-8-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
+<img src="https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" />
+<img src="https://img.shields.io/badge/Entity_Framework_Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
+
+# 📋 Protagonize Tech — Gerenciador de Tarefas
+
+Aplicação web fullstack desenvolvida como desafio técnico do **Bootcamp Web Front (Angular + ASP.NET)** da Protagonize Tech.
+
+Permite criar, visualizar, editar, excluir e filtrar tarefas por status, com comunicação REST entre front-end e back-end.
+
+</div>
 
 ---
 
-## Tecnologias usadas
+## 📑 Índice
 
-- **Front-end:** Angular 17
-- **Back-end:** ASP.NET Core 8 (C#)
-- **Banco de dados:** SQL Server
-- **ORM:** Entity Framework Core
+- [Tecnologias](#-tecnologias)
+- [Funcionalidades](#-funcionalidades)
+- [Pré-requisitos](#-pré-requisitos)
+- [Como rodar o projeto](#-como-rodar-o-projeto)
+  - [Back-end (API)](#back-end-api)
+  - [Front-end (Angular)](#front-end-angular)
+- [Endpoints da API](#-endpoints-da-api)
+- [Estrutura do projeto](#-estrutura-do-projeto)
+- [Autora](#-autora)
 
 ---
 
-## Como rodar o projeto
+## 🛠 Tecnologias
 
-### Pré-requisitos
+| Camada | Tecnologia |
+|--------|-----------|
+| Front-end | Angular 17 |
+| Back-end | ASP.NET Core 8 (C#) |
+| Banco de dados | SQL Server |
+| ORM | Entity Framework Core |
+| Comunicação | REST API (JSON) |
+| Documentação da API | Swagger / OpenAPI |
 
-- .NET 8 SDK instalado
-- Node.js e npm instalados
-- Angular CLI: `npm install -g @angular/cli`
-- SQL Server instalado e rodando
+---
+
+## ✅ Funcionalidades
+
+- [x] Listar todas as tarefas
+- [x] Criar nova tarefa
+- [x] Editar tarefa existente
+- [x] Excluir tarefa
+- [x] Filtrar tarefas por status (Pendente / Concluída)
+- [x] Mensagens de feedback ao usuário (sucesso e erro)
+- [x] Validação básica de formulário
+
+---
+
+## 📦 Pré-requisitos
+
+Antes de começar, certifique-se de ter instalado:
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [Node.js (LTS) + npm](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli) — instale com:
+  ```bash
+  npm install -g @angular/cli
+  ```
+- [SQL Server](https://www.microsoft.com/pt-br/sql-server/sql-server-downloads) instalado e em execução
+- [Git](https://git-scm.com/)
+
+---
+
+## 🚀 Como rodar o projeto
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/thaynabds/DESAFIO-TECNICO-PROTAGONIZE-TECH.git
+cd DESAFIO-TECNICO-PROTAGONIZE-TECH
+```
 
 ---
 
 ### Back-end (API)
 
-1. Abra a pasta `backend/ProtagonizetechAPI`
+1. Acesse a pasta do back-end:
+   ```bash
+   cd backend/ProtagonizetechAPI
+   ```
 
-2. Edite o arquivo `appsettings.json` e coloque sua string de conexão com o SQL Server:
-```json
-"DefaultConnection": "Server=SEU_SERVIDOR;Database=ProtagonizetechDB;Trusted_Connection=True;TrustServerCertificate=True;"
-```
+2. Configure a string de conexão com o seu SQL Server no arquivo `appsettings.json`:
+   ```json
+   "ConnectionStrings": {
+     "DefaultConnection": "Server=SEU_SERVIDOR;Database=ProtagonizetechDB;Trusted_Connection=True;TrustServerCertificate=True;"
+   }
+   ```
+   > Substitua `SEU_SERVIDOR` pelo nome ou endereço do seu servidor SQL Server (ex: `localhost` ou `.\SQLEXPRESS`).
 
-3. Rode os comandos abaixo no terminal:
-```bash
-dotnet restore
-dotnet ef database update
-dotnet run
-```
+3. Restaure as dependências, aplique as migrations e rode a API:
+   ```bash
+   dotnet restore
+   dotnet ef database update
+   dotnet run
+   ```
 
-A API vai rodar em `http://localhost:5000`
-
-Você pode testar os endpoints no Swagger em `http://localhost:5000/swagger`
+4. A API estará disponível em:
+   - **Base:** `http://localhost:5000`
+   - **Swagger (documentação interativa):** `http://localhost:5000/swagger`
 
 ---
 
 ### Front-end (Angular)
 
-1. Abra a pasta `frontend`
+> ⚠️ **Atenção:** o back-end precisa estar em execução antes de iniciar o front-end.
+
+1. Em outro terminal, acesse a pasta do front-end:
+   ```bash
+   cd frontend
+   ```
 
 2. Instale as dependências:
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-3. Rode o projeto:
-```bash
-ng serve
-```
+3. Inicie a aplicação:
+   ```bash
+   ng serve
+   ```
 
-Acesse `http://localhost:4200` no navegador.
-
-> **Atenção:** o back-end precisa estar rodando antes de abrir o front.
+4. Acesse no navegador: **`http://localhost:4200`**
 
 ---
 
-## Endpoints da API
+## 🔌 Endpoints da API
 
 | Método | Rota | Descrição |
 |--------|------|-----------|
-| GET | /api/tarefas | Lista todas as tarefas |
-| GET | /api/tarefas?status=Pendente | Filtra por status |
-| GET | /api/tarefas/{id} | Busca tarefa pelo id |
-| POST | /api/tarefas | Cria uma nova tarefa |
-| PUT | /api/tarefas/{id} | Edita uma tarefa |
-| DELETE | /api/tarefas/{id} | Deleta uma tarefa |
+| `GET` | `/api/tarefas` | Lista todas as tarefas |
+| `GET` | `/api/tarefas?status=Pendente` | Filtra tarefas por status |
+| `GET` | `/api/tarefas/{id}` | Busca uma tarefa pelo ID |
+| `POST` | `/api/tarefas` | Cria uma nova tarefa |
+| `PUT` | `/api/tarefas/{id}` | Atualiza uma tarefa existente |
+| `DELETE` | `/api/tarefas/{id}` | Remove uma tarefa |
+
+### Exemplo de payload (POST / PUT)
+
+```json
+{
+  "titulo": "Estudar Angular",
+  "descricao": "Revisar componentes, serviços e rotas",
+  "status": "Pendente"
+}
+```
 
 ---
 
-## Funcionalidades
-
-- Listar todas as tarefas
-- Criar nova tarefa
-- Editar tarefa existente
-- Deletar tarefa
-- Filtrar por status (Pendente / Concluída)
-- Mensagens de feedback pro usuário
-
----
-
-## Estrutura do projeto
+## 📁 Estrutura do projeto
 
 ```
-protagonize-tech/
+DESAFIO-TECNICO-PROTAGONIZE-TECH/
+│
 ├── backend/
 │   └── ProtagonizetechAPI/
-│       ├── Controllers/    -> TarefasController
-│       ├── Data/           -> AppDbContext
-│       ├── DTOs/           -> TarefaDto
-│       ├── Migrations/     -> migration do banco
-│       ├── Models/         -> Tarefa
-│       └── Program.cs
+│       ├── Controllers/        # TarefasController — endpoints REST
+│       ├── Data/               # AppDbContext — configuração do EF Core
+│       ├── DTOs/               # TarefaDto — transferência de dados
+│       ├── Migrations/         # Migrations do banco de dados
+│       ├── Models/             # Entidade Tarefa
+│       └── Program.cs          # Configuração da aplicação
 │
 └── frontend/
     └── src/
         └── app/
             ├── components/
-            │   ├── task-list/   -> listagem das tarefas
-            │   └── task-form/   -> formulário criar/editar
-            ├── models/          -> interface Tarefa
-            └── services/        -> TarefaService (HttpClient)
+            │   ├── task-list/  # Listagem de tarefas com filtro
+            │   └── task-form/  # Formulário para criar e editar tarefas
+            ├── models/         # Interface TypeScript da Tarefa
+            └── services/       # TarefaService — consumo da API via HttpClient
 ```
---- 
-</div>
+
 ---
+
+## 👩‍💻 Autora
+
+<div align="center">
 
 ### Thayná Batista da Silva
 
@@ -125,18 +193,25 @@ protagonize-tech/
   <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
 </a>
 <a href="mailto:thaynabdstec@gmail.com">
-  <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
 </a>
 
-📧 [thaynabdstec@gmail.com](mailto:thaynabdstec@gmail.com) · 📱 +55 (81) 97912-6121
+📧 thaynabdstec@gmail.com · 📱 +55 (81) 97912-6121
+
+Estudante de **Análise e Desenvolvimento de Sistemas** — Faculdade Senac Recife · Previsão de formatura: 2027
+
+<br/>
 
 <img src="https://raw.githubusercontent.com/thaynabds/AppMedSmart/refs/heads/main/Cart%C3%A3o%20TEC%20Thayn%C3%A1%20Batista%20da%20Silva.png" width="340" alt="Cartão TEC Thayná Batista da Silva" />
 
----
 </div>
+
+---
+
 <div align="center">
 
-**Copyright © 2026, Thayná Batista da Silva — DESAFIO TECNICO PROTAGONIZE TECH. Todos os direitos reservados.**
+Feito com 💜 por **Thayná Batista da Silva** para o **Bootcamp Protagonize Tech Avanade Back-End com .NET & IA**
 
-Feito com 💜 por **Thayná Batista da Silva** para o **Bootcamp .NET Avanade Protagonize Tech!**
-**Estudante de Análise e Desenvolvimento de Sistemas na Faculdade Senac Recife 2026 · Previsão de formatura 2027**
+**Copyright © 2026 — Todos os direitos reservados.**
+
+</div>
