@@ -112,3 +112,31 @@ protagonize-tech/
             ├── models/          -> interface Tarefa
             └── services/        -> TarefaService (HttpClient)
 ```
+--- 
+</div>
+---
+
+### Thayná Batista da Silva
+
+<a href="https://br.linkedin.com/in/thaynabds" target="_blank">
+  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+<a href="https://www.instagram.com/thaynabdstec/" target="_blank">
+  <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+</a>
+<a href="mailto:thaynabdstec@gmail.com">
+  <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+</a>
+
+📧 [thaynabdstec@gmail.com](mailto:thaynabdstec@gmail.com) · 📱 +55 (81) 97912-6121
+
+<img src="https://raw.githubusercontent.com/thaynabds/AppMedSmart/refs/heads/main/Cart%C3%A3o%20TEC%20Thayn%C3%A1%20Batista%20da%20Silva.png" width="340" alt="Cartão TEC Thayná Batista da Silva" />
+
+---
+</div>
+<div align="center">
+
+**Copyright © 2026, Thayná Batista da Silva — DESAFIO TECNICO PROTAGONIZE TECH. Todos os direitos reservados.**
+
+Feito com 💜 por **Thayná Batista da Silva** para o **Bootcamp .NET Avanade Protagonize Tech!**
+**Estudante de Análise e Desenvolvimento de Sistemas na Faculdade Senac Recife 2026 · Previsão de formatura 2027**
