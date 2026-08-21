@@ -1,3 +1,14 @@
+<div align="center">
+
+## 🌐 Idioma / Language
+
+[![Português](https://img.shields.io/badge/🇧🇷_Português-selecionado-2ea44f?style=for-the-badge)](./README.md)
+[![English](https://img.shields.io/badge/🇺🇸_English-click_here-lightgrey?style=for-the-badge)](./README.en.md)
+
+</div>
+
+---
+
 # Bootcamp Protagonize Tech Avanade Back-End com .NET & IA
 <div align="center">
 
@@ -212,9 +223,3 @@ Estudante de **Análise e Desenvolvimento de Sistemas** — Faculdade Senac Reci
 ---
 
 <div align="center">
-
-Feito com 💜 por **Thayná Batista da Silva** para o **Bootcamp Protagonize Tech Avanade Back-End com .NET & IA**
-
-**Copyright © 2026 — Todos os direitos reservados.**
-
-</div>
